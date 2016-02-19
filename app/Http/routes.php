@@ -21,6 +21,8 @@ Route::get('admin', function (){
 
 Route::get('test', 'TestController@index');
 
+Route::resource('admin_test', 'AdminController');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
