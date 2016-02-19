@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Debugbar;
 
 class AdminController extends Controller
 {
@@ -17,6 +18,18 @@ class AdminController extends Controller
     public function index()
     {
         echo 'here';
+        $ary = ['a', 'b', 'c'];
+
+        Debugbar::info($ary);
+        Debugbar::error('Error!');
+        Debugbar::warning('Watch out…');
+
+        Debugbar::startMeasure('render','Time for rendering');
+        Debugbar::stopMeasure('render');
+        Debugbar::addMeasure('now', LARAVEL_START, microtime(true));
+        Debugbar::measure('My long operation', function() {
+            echo 'xxx';
+        });
     }
 
     /**
