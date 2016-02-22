@@ -11,17 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('admin', function (){
-    return view('admin_template');
-});
 
-Route::get('test', 'TestController@index');
+// Route::get('test', 'TestController@index');
 
-Route::resource('admin_test', 'AdminController');
+// Route::resource('admin', 'AdminController');
 
 /*
 |--------------------------------------------------------------------------
@@ -35,5 +32,6 @@ Route::resource('admin_test', 'AdminController');
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    Route::resource('/', 'AdminController');
+    Route::auth();
 });
