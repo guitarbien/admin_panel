@@ -16,8 +16,7 @@ class CreateMainFunctionsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('sort_no')->nullable()->comment('排序 使用asc');
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+            $table->timestamps();
         });
     }
 

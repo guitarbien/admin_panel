@@ -14,7 +14,7 @@ class AddGroupStatusToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('group')->nullable();
-            $table->char('status', 1)->comment('狀態:1啟用0停用');
+            $table->char('status', '1')->default('1')->comment('狀態:1啟用0停用');
         });
     }
 
