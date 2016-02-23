@@ -16,7 +16,9 @@
 // });
 
 
-// Route::get('test', 'TestController@index');
+Route::get('logout', function(){
+    Auth::logout();
+});
 
 // Route::resource('admin', 'AdminController');
 
