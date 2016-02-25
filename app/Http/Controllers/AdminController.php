@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Debugbar;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -36,34 +37,11 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data['tasks'] = [
-            [
-                'name' => 'Design New Dashboard',
-                'progress' => '87',
-                'color' => 'danger'
-            ],
-            [
-                'name' => 'Create Home Page',
-                'progress' => '76',
-                'color' => 'warning'
-            ],
-            [
-                'name' => 'Some Other Task',
-                'progress' => '32',
-                'color' => 'success'
-            ],
-            [
-                'name' => 'Start Building Website',
-                'progress' => '56',
-                'color' => 'info'
-            ],
-            [
-                'name' => 'Develop an Awesome Algorithm',
-                'progress' => '10',
-                'color' => 'success'
-            ]
+        $data['user'] = [
+            'name'  => Auth::user()->name,
+            'email' => Auth::user()->email,
         ];
 
         return view('admin_list')->with($data);
