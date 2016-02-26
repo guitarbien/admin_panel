@@ -26,17 +26,16 @@ class MainFunctionTableSeeder extends Seeder
         // $main_function->save();
 
         // 2 不標timestamps 可一次多筆
-        $now = date('Y-m-d H:i:s');
-        $records = [
-            ['name' => '使用者管理', 'sort_no' => 1, 'created_at' => $now, 'updated_at' => $now],
-            ['name' => '功能管理',   'sort_no' => 2, 'created_at' => $now, 'updated_at' => $now],
-        ];
+        // $now = date('Y-m-d H:i:s');
+        // $records = [
+        //     ['name' => '使用者管理', 'sort_no' => 1, 'created_at' => $now, 'updated_at' => $now],
+        //     ['name' => '功能管理',   'sort_no' => 2, 'created_at' => $now, 'updated_at' => $now],
+        // ];
 
-        App\MainFunction::insert($records);
+        // App\MainFunction::insert($records);
 
-        // // 3 會標timestamps 但要多次
-        // App\MainFunction::create(['name' => '使用者管理', 'sort_no' => 1]);
-        // App\MainFunction::create(['name' => '功能管理',   'sort_no' => 2]);
+        // 3 會標timestamps 但要多次
+        App\MainFunction::create(['name' => '系統管理', 'sort_no' => 1]);
 
         // // 4 不標timestamps 可一次多筆
         // DB::table('main_functions')->insert([
