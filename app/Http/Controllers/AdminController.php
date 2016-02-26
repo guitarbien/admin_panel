@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Debugbar;
 use Auth;
+use App\MainFunction;
 
 class AdminController extends Controller
 {
