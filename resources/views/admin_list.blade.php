@@ -16,9 +16,6 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <ul>
-                  @foreach($main_functions as $each_func)
-                  <li>{{ $each_func['name'] }}</li>
-                  @endforeach
                 </ul>
             </div>
             <!-- /.box-body -->

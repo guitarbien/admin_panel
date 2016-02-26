@@ -29,17 +29,24 @@
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
-            <li class="header">HEADER</li>
+            <!-- <li class="header">HEADER</li> -->
             <!-- Optionally, you can add icons to the links -->
+
+            <!--
             <li class="active"><a href="/"><span>系統管理首頁</span></a></li>
             <li><a href="#"><span>Another Link</span></a></li>
+            -->
+
+            @foreach($main_functions as $main_name => $each_row)
             <li class="treeview">
-                <a href="#"><span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><span>{{ $main_name }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Link in level 2</a></li>
-                    <li><a href="#">Link in level 2</a></li>
+                    @foreach($each_row as $sub_name)
+                    <li><a href="#">{{ $sub_name }}</a></li>
+                    @endforeach
                 </ul>
             </li>
+            @endforeach
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
