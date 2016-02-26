@@ -45,6 +45,9 @@ class AdminController extends Controller
             'email' => Auth::user()->email,
         ];
 
+        // Debugbar::info(MainFunction::where('status', '1')->orderBy('sort_no')->orderBy('id')->get(['name']));
+        $data['main_functions'] = MainFunction::where('status', '1')->orderBy('sort_no')->orderBy('id')->get(['name']);
+
         return view('admin_list')->with($data);
     }
 
