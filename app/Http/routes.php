@@ -36,4 +36,5 @@ Route::get('logout', function(){
 Route::group(['middleware' => ['web']], function () {
     Route::resource('/', 'AdminController');
     Route::auth();
+    Route::resource('user', 'UserController');
 });
