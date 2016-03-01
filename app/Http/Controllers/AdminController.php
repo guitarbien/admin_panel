@@ -9,7 +9,6 @@ use App\Http\Controllers\Controller;
 use Debugbar;
 use Auth;
 use App\MainFunction;
-use DB;
 
 class AdminController extends Controller
 {
@@ -46,23 +45,7 @@ class AdminController extends Controller
             'email' => Auth::user()->email,
         ];
 
-        $sql = 'select mf.name as main_name,
-                       sf.name as sub_name,
-                       sf.url
-                from main_functions mf
-                join sub_functions sf on mf.id = sf.main_id
-                where mf.id = :id
-                ';
-
-        $result = DB::select($sql, ['id' => 1]);
-
-        $output = [];
-        foreach ($result as $row)
-        {
-            $output[$row->main_name][] = ['sub_name' => $row->sub_name, 'url' => $row->url];
-        }
-
-        $data['main_functions'] = $output;
+        $data['main_functions'] = MainFunction::sidebar();
 
         return view('admin_index')->with($data);
     }
