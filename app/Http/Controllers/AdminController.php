@@ -64,7 +64,7 @@ class AdminController extends Controller
 
         $data['main_functions'] = $output;
 
-        return view('admin_list')->with($data);
+        return view('admin_index')->with($data);
     }
 
     /**
