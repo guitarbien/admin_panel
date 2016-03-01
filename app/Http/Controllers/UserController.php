@@ -19,12 +19,7 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    private function _prepare()
     {
         $data['user'] = [
             'name'  => Auth::user()->name,
@@ -32,6 +27,18 @@ class UserController extends Controller
         ];
 
         $data['main_functions'] = MainFunction::sidebar();
+
+        return $data;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $data = $this->_prepare();
 
         $data['user_ary'] = User::select('id', 'name', 'email', 'group', 'status')->get();
 

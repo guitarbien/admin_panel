@@ -33,12 +33,7 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
+    private function _prepare()
     {
         $data['user'] = [
             'name'  => Auth::user()->name,
@@ -47,7 +42,17 @@ class AdminController extends Controller
 
         $data['main_functions'] = MainFunction::sidebar();
 
-        return view('admin_index')->with($data);
+        return $data;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        return view('admin_index')->with($this->_prepare());
     }
 
     /**
