@@ -15,8 +15,8 @@ class SubFunctionTableSeeder extends Seeder
     {
         $now = date('Y-m-d H:i:s');
         $records = [
-            ['name' => '功能管理',   'sort_no' => 1, 'created_at' => $now, 'updated_at' => $now, 'main_id' => 1],
-            ['name' => '使用者管理', 'sort_no' => 2, 'created_at' => $now, 'updated_at' => $now, 'main_id' => 1],
+            ['name' => '功能管理',   'sort_no' => 1, 'created_at' => $now, 'updated_at' => $now, 'main_id' => 1, 'url' => 'func'],
+            ['name' => '使用者管理', 'sort_no' => 2, 'created_at' => $now, 'updated_at' => $now, 'main_id' => 1, 'url' => 'user'],
         ];
 
         App\SubFunction::insert($records);

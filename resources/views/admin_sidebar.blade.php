@@ -41,8 +41,8 @@
             <li class="treeview">
                 <a href="#"><span>{{ $main_name }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    @foreach($each_row as $sub_name)
-                    <li><a href="#">{{ $sub_name }}</a></li>
+                    @foreach($each_row as $func)
+                    <li><a href="/{{ $func['url'] }}">{{ $func['sub_name'] }}</a></li>
                     @endforeach
                 </ul>
             </li>
